@@ -11,7 +11,6 @@ import { Provider } from 'react-redux'
 // chakra
 import { ChakraProvider } from '@chakra-ui/react'
 
-
 // react-router
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from './components/Header.jsx'
