@@ -1,16 +1,48 @@
 import React from 'react'
+import axios from 'axios'
 import { Button, Input,Image } from '@chakra-ui/react'
 import { CheckIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementRegisterStage, decrementRegisterStage } from '../../features/authSlice'
+import { incrementRegisterStage, decrementRegisterStage, setCvLink } from '../../features/authSlice'
 
 const Register06 = () => {
 
   const dispatch = useDispatch();
   // const registerStage = useSelector((state) => state.auth.registerStage);
+  const cvLink = useSelector((state) => state.auth.setCvLink);
+  const email = useSelector((state) => state.auth.email);
+  const password = useSelector((state) => state.auth.password);
 
+  const registerData = {
+    email: email,
+    password: password,
+    //role: "",
+    //name: "",
+    //username: "",
+    //dob: "",
+    //about: "",
+    //clgName: "",
+    //passingYear: "",
+    //domain: "",
+    //workExp: "",
+    //linkedIn: "",
+    //github: "",
+    //cvLink: "",
+  }
+  
+  const handleRegister = async() => {
+    try {
+      const res = await axios.post('http://localhost:3000/auth/requester/register', registerData);
+      console.log(res.data.token);
+      localStorage.setItem('token', res.data.token);
+      dispatch(incrementRegisterStage());
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   return (
     <>
       <div className="container w-full h-full p-4 py-0 flex flex-col items-center justify-start">
@@ -29,7 +61,7 @@ const Register06 = () => {
               <p className='text-lg text-slate-400'>Educational Details</p>
             </div>
             <div className="input mt-4 flex flex-col items-center justify-center gap-2 w-2/5 mb-4">
-                <Input placeholder="Upload your CV link here" />
+                <Input placeholder="Upload your CV link here" value={cvLink} onChange={(e)=>{dispatch(setCvLink(e.target.value))}}/>
             </div>
             <div className="info mb-4">
               <div className='flex gap-2 px-2'>
@@ -42,7 +74,7 @@ const Register06 = () => {
               </div>
             </div>
           </div>
-          <Button bgColor={'purple.500'} className='mt-5' textColor={'white'} _hover={{textColor:'purple.500', bgColor:'white'}}onClick={()=>{dispatch(incrementRegisterStage())}}>Continue</Button>
+          <Button bgColor={'purple.500'} className='mt-5' textColor={'white'} _hover={{textColor:'purple.500', bgColor:'white'}} onClick={()=>{handleRegister()}}>Register</Button>
       </div>
     </>
   )

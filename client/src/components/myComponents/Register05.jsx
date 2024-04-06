@@ -4,12 +4,14 @@ import { CheckIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementRegisterStage, decrementRegisterStage } from '../../features/authSlice'
+import { incrementRegisterStage, decrementRegisterStage, setLinkedIn, setGithub } from '../../features/authSlice'
 
 const Register05 = () => {
 
   const dispatch = useDispatch();
 //   const registerStage = useSelector((state) => state.auth.registerStage);
+  const linkedIn = useSelector((state) => state.auth.linkedIn);
+  const github = useSelector((state)=>state.auth.github)
 
   return (
     <>
@@ -29,8 +31,8 @@ const Register05 = () => {
               <p className='text-lg text-slate-400'>Educational Details</p>
             </div>
             <div className="input mt-4 flex flex-col items-center justify-center gap-2 w-2/5 mb-4">
-                <Input placeholder="LinkedIn Link" />
-                <Input placeholder="Github Link" />
+                <Input placeholder="LinkedIn Link" onChange={(e)=>{dispatch(setLinkedIn(e.target.value))}}/>
+                <Input placeholder="Github Link" onChange={(e)=>{dispatch(setGithub(e.target.value))}}/>
             </div>
           </div>
           <Button bgColor={'purple.500'} className='mt-5' textColor={'white'} _hover={{textColor:'purple.500', bgColor:'white'}}onClick={()=>{dispatch(incrementRegisterStage())}}>Continue</Button>
