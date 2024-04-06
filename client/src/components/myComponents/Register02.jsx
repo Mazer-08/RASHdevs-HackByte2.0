@@ -14,8 +14,11 @@ const Register02 = () => {
   return (
     <div>
       <div className="div">
-            <ChevronLeftIcon onClick={()=>{dispatch(decrementRegisterStage());}}/>
-            <p>Back</p>
+        <div onClick={()=>{dispatch(decrementRegisterStage());}} className='flex'>
+          <ChevronLeftIcon />
+          <p>Back</p>
+        </div>
+            
           </div>
           <div className="brand flex gap-2">
               {/* <Image src="" alt="logo" /> */}

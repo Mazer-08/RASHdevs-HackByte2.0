@@ -14,6 +14,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 // react-router
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 
 
 const router  = createBrowserRouter([
@@ -31,7 +33,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <ChakraProvider>
+        <Header />
         <RouterProvider router = {router}/>
+        <Footer />
       </ChakraProvider>
     </Provider>
   </React.StrictMode>,
