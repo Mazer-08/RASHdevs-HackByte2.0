@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className='p-4 m-4 sticky bg-[#7346F1] rounded-xl flex items-center justify-between'>
         <div className='font-bold text-white text-3xl px-2 font-sans'>
-            JobBridge
+        ReferKaro
         </div>
         <div className='flex text-white'>
             <div>
