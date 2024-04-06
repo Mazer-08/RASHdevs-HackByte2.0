@@ -16,6 +16,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
 
 
 const router  = createBrowserRouter([
@@ -27,6 +28,10 @@ const router  = createBrowserRouter([
     path:'/signup',
     element:<Signup/>,
   },
+  {
+    path : "/home",
+    element : <Home/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
