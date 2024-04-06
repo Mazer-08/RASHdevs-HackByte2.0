@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from '@chakra-ui/react'
+import { Button, Input,Image } from '@chakra-ui/react'
+import { CheckIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
@@ -8,14 +9,33 @@ import { incrementRegisterStage, decrementRegisterStage } from '../../features/a
 const Register05 = () => {
 
   const dispatch = useDispatch();
-  const registerStage = useSelector((state) => state.auth.registerStage);
+//   const registerStage = useSelector((state) => state.auth.registerStage);
 
   return (
-    <div>
-      <h1>AT stage {registerStage}</h1>
-      <Button onClick={()=>{dispatch(incrementRegisterStage())}}>Next</Button>
-      <Button onClick={()=>{dispatch(decrementRegisterStage())}}>Prev</Button>
-    </div>
+    <>
+      <div className="container" >
+          <div className="div">
+            <ChevronLeftIcon onClick={()=>{dispatch(decrementRegisterStage())}}/>
+            <p>Back</p>
+          </div>
+          <div className="brand flex gap-2">
+              <Image src="" alt="logo" />
+              <h1>ReferKaro</h1>
+          </div>
+          <div className="confirm">
+            <div className="div">
+              <p>5/6</p>
+              <p>Fill your details</p>
+              <p>Educational Details</p>
+            </div>
+            <div className="input">
+                <Input placeholder="LinkedIn Link" />
+                <Input placeholder="Github Link" />
+            </div>
+          </div>
+          <Button onClick={()=>{dispatch(incrementRegisterStage())}}>Continue</Button>
+      </div>
+    </>
   )
 }
 
