@@ -11,7 +11,8 @@ import {
   } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 
-const InfoCard = ({item}) => {
+const InfoCard2 = ({item}) => {
+    console.log(item);
     const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <div className='my-4'>
@@ -72,4 +73,4 @@ const InfoCard = ({item}) => {
   )
 }
 
-export default InfoCard
+export default InfoCard2

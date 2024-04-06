@@ -91,7 +91,7 @@ const RequestList = async (req, res) => {
       include: [
         {
           model: Referral,
-          attributes: ["position", "company"],
+          attributes: ["position", "company", "expiryDate", "availableCount"],
         },
       ],
       nest: true,
