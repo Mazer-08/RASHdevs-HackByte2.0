@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { Input, Tabs, TabList, TabPanels, Tab, TabPanel, Button } from '@chakra-ui/react'
 import '../../index.css'
 
@@ -8,12 +9,28 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const SignupLogin = () => {
 
+    //baseurl
+    const baseurl = import.meta.env.VITE_BASE_URL;
+
+
     //redux
     const dispatch = useDispatch();
 
     //variables
     const email = useSelector((state) => state.auth.email);
     const password = useSelector((state) => state.auth.password);
+    const role = useSelector((state) => state.auth.role);
+    const name = useSelector((state) => state.auth.name);
+    const username = useSelector((state) => state.auth.username);
+    const dob = useSelector((state) => state.auth.dob); 
+    const about = useSelector((state) => state.auth.about);
+    const clgName = useSelector((state) => state.auth.clgName);
+    const passingYear = useSelector((state) => state.auth.passingYear);
+    const domain = useSelector((state) => state.auth.domain);
+    const workExp = useSelector((state) => state.auth.workExp);
+    const linkedIn = useSelector((state) => state.auth.linkedIn);
+    const github = useSelector((state) => state.auth.github);
+    const cvLink = useSelector((state) => state.auth.cvLink);
     const key = useSelector((state) => state.auth.key);
 
     //functions
