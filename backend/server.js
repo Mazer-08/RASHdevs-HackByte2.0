@@ -29,12 +29,6 @@ import requestRoutes from "./routes/provider/request.js";
 // Requester routes imports
 import requesterRequestRoutes from "./routes/requester/request.js";
 
-// // Organiser route imports
-// import organiserProfileRoutes from "./routes/organiser/organiserProfile.js";
-// import eventCreateRoutes from "./routes/organiser/createEvent.js";
-// import eventUpdateRoutes from "./routes/organiser/updateEvent.js";
-// import changeOrganiserPasswordRoutes from "./routes/user/changePassword.js";
-
 // Auth routes
 app.use("/auth/provider", providerAuthRoutes);
 app.use("/auth/requester", requesterAuthRoutes);
@@ -45,20 +39,6 @@ app.use("/provider", requestRoutes);
 
 // Requester routes
 app.use("/requester", requesterRequestRoutes);
-
-
-
-// // User routes
-// app.use("/user", userBookmarkRoutes);
-// app.use("/user", userRegisteredRoutes);
-// app.use("/user", userProfileRoutes);
-// app.use("/user", changeUserPasswordRoutes);
-
-// // organiser routes
-// app.use("/organiser", organiserProfileRoutes);
-// app.use("/organiser", changeOrganiserPasswordRoutes);
-// app.use("/event", eventCreateRoutes);
-// app.use("/event", eventUpdateRoutes);
 
 app.get("/hello", (req, res) => {
   res.send("Hello World from Jobbridge!!");

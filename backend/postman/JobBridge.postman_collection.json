@@ -150,6 +150,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "update requester profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"abcde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/requester/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"requester",
+								"update"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -406,7 +444,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/provider/request/accept/3",
+							"raw": "{{BASE_URL}}/provider/request/accept/2",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -414,7 +452,45 @@
 								"provider",
 								"request",
 								"accept",
-								"3"
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"himasnfk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/provider/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"provider",
+								"update"
 							]
 						}
 					},

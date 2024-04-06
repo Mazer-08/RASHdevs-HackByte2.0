@@ -63,3 +63,21 @@ export const register = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const updateRequester = async (req, res) => {
+  try {
+    const { id } = req.user;
+    const { name, address, phone } = req.body;
+    const updated = await Requester.update(
+      { name, address, phone },
+      { where: { id } }
+    );
+    if (!updated) {
+      return res.status(400).json({ message: "Requester not updated" });
+    }
+    return res.status(200).json({ message: "Requester updated" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}

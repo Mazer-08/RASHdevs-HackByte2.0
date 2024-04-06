@@ -63,3 +63,23 @@ export const register = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const updateProvider = async (req, res) => {
+  try {
+    const id = req.user.id;
+    const old = await Provider.findOne({
+      where: { id },
+    });
+    if (!old) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const updated = await old.update({ ...req.body });
+    if (!updated) {
+      return res.status(400).json({ message: "User not updated" });
+    }
+    return res.status(200).json({ message: "User updated" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};

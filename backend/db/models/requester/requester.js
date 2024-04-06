@@ -37,20 +37,44 @@ Requester.init(
       // allowNull: false,
       allowNull: true,
     },
-    college: {
+    clgName: {
       type: DataTypes.STRING,
       // allowNull: false,
       allowNull: true,
     },
-    resume: {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    dob: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    passingYear: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    domain: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    workExp: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    cvLink: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    github: {
       type: DataTypes.STRING,
       allowNull: true,
     },
     linkedin: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    twitter: {
       type: DataTypes.STRING,
       allowNull: true,
     },
