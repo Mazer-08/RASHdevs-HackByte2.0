@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"himanshu2@gmail.com\",\r\n    \"password\" : \"himanshu2\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"himanshu1@gmail.com\",\r\n    \"password\" : \"himanshu1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -60,92 +60,6 @@
 								"auth",
 								"requester",
 								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "make new request",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{REQUESTER_TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{BASE_URL}}/requester/makerequest/2",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"requester",
-								"makerequest",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Check request status",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{REQUESTER_TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{BASE_URL}}/requester/checkrequest/2",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"requester",
-								"checkrequest",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "My request list",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{REQUESTER_TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{BASE_URL}}/requester/requestlist",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"requester",
-								"requestlist"
 							]
 						}
 					},
@@ -186,6 +100,108 @@
 								"update"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "make new request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/makerequest/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"makerequest",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check request status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/checkrequest/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"checkrequest",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My request list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/requestlist",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"requestlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get referral list based on filters",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get referral details",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -245,6 +261,44 @@
 								"auth",
 								"provider",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"himasnfk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/provider/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"provider",
+								"update"
 							]
 						}
 					},
@@ -444,7 +498,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/provider/request/accept/2",
+							"raw": "{{BASE_URL}}/provider/request/accept/1",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -452,45 +506,7 @@
 								"provider",
 								"request",
 								"accept",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update provider",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PROVIDER_TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"himasnfk\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{BASE_URL}}/auth/provider/update",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"auth",
-								"provider",
-								"update"
+								"1"
 							]
 						}
 					},
