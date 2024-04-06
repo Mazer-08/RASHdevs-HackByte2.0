@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Input, Tabs, TabList, TabPanels, Tab, TabPanel, Button,Radio, RadioGroup, useToast } from '@chakra-ui/react'
 
 // redux
-import { setKey, setEmail, setPassword, setRole, setName, setUsername, setDob, setAbout, setClgName, setPassingYear, setDomain, setWorkExp, setLinkedIn, setGithub, setCvLink, incrementRegisterStage } from '../../features/authSlice';
+import { setEmail, setPassword, setRole, incrementRegisterStage, setLoggedIn } from '../../features/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 
 const SignupLogin = () => {
@@ -20,6 +20,7 @@ const SignupLogin = () => {
 
     //variables
     const email = useSelector((state) => state.auth.email);
+    const loggedIn = useSelector((state) => state.auth.loggedIn);
     const password = useSelector((state) => state.auth.password);
     const role = useSelector((state) => state.auth.role);
 
@@ -46,11 +47,17 @@ const SignupLogin = () => {
                 const res = await axios.post('http://localhost:3000/auth/requester/login', loginData);
                 //console.log(res.data.token);
                 localStorage.setItem('token', res.data.token);
+                console.log("before setLoggedIn");
+                dispatch(setLoggedIn(loggedIn));
+                console.log("after setLoggedIn");
                 navigate('/');
             }
             else if(role==="provider"){
                 const res = await axios.post('http://localhost:3000/auth/provider/login', loginData);
                 localStorage.setItem('token', res.data.token);
+                console.log("before setLoggedIn");
+                dispatch(setLoggedIn(loggedIn));
+                console.log("after setLoggedIn");
                 navigate('/');
             }
         } catch (error) {

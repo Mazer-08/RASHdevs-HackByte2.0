@@ -11,34 +11,6 @@ import {
   RadioGroup,
 } from "@chakra-ui/react";
 
-const array = [
-  {
-    company: "Google",
-    role: "SDE",
-    count: "3",
-  },
-  {
-    company: "Google",
-    role: "SDE",
-  },
-  {
-    company: "Google",
-    role: "SDE",
-  },
-  {
-    company: "Google",
-    role: "SDE",
-  },
-  {
-    company: "Google",
-    role: "SDE",
-  },
-  {
-    company: "Google",
-    role: "SDE",
-  },
-];
-
 const ListCard = () => {
   return (
     <div className="w-2/3 px-4">
@@ -49,7 +21,7 @@ const ListCard = () => {
                 _selected={{ color: "white", bg: "purple.500" }}
                 className="rounded-lg w-auto"
             >
-                Login
+                All
             </Tab>
           </div>
           <div className="div">
@@ -57,7 +29,7 @@ const ListCard = () => {
                 _selected={{ color: "white", bg: "purple.500" }}
                 className="rounded-lg w-auto"
             >
-                Register
+                Pending
             </Tab>
           </div>
           <div className="div">
@@ -65,20 +37,28 @@ const ListCard = () => {
                 _selected={{ color: "white", bg: "purple.500" }}
                 className="rounded-lg w-auto"
             >
-                Register
+                Accepted
+            </Tab>
+          </div>
+          <div className="div">
+            <Tab
+                _selected={{ color: "white", bg: "purple.500" }}
+                className="rounded-lg w-auto"
+            >
+                Rejected
             </Tab>
           </div>
         </TabList>
         <TabPanels>
           <TabPanel>
-            {array.map((item, index) => (
+            {/*array.map((item, index) => (
               <InfoCard item={item} key={index} />
-            ))}
+            ))*/}
           </TabPanel>
           <TabPanel>
-            {array.map((item, index) => (
+            {/*array.map((item, index) => (
               <InfoCard item={item} key={index} />
-            ))}
+            ))*/}
           </TabPanel>
         </TabPanels>
       </Tabs>

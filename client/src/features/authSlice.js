@@ -19,6 +19,7 @@ const initialState = {
   linkedIn: "",
   github: "",
   cvLink: "",
+  loggedIn: false,
 }
 
 export const authSlice = createSlice({
@@ -76,9 +77,12 @@ export const authSlice = createSlice({
     decrementRegisterStage: (state, action) => {
       state.registerStage -= 1;
     },
+    setLoggedIn: (state, action) => {
+      state.loggedIn = !state.loggedIn;
+    },
   },
 })
 
-export const { setKey, setEmail, setPassword, setRole, setName, setUsername, setDob, setAbout, setClgName, setPassingYear, setDomain, setWorkExp, setLinkedIn, setGithub, setCvLink, incrementRegisterStage, decrementRegisterStage } = authSlice.actions
+export const { setKey, setEmail, setPassword, setRole, setName, setUsername, setDob, setAbout, setClgName, setPassingYear, setDomain, setWorkExp, setLinkedIn, setGithub, setCvLink, incrementRegisterStage, decrementRegisterStage, setLoggedIn } = authSlice.actions
 
 export default authSlice.reducer
