@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Tabs, TabList, TabPanels, Tab, TabPanel, Button } from '@chakra-ui/react'
+import { Input, Tabs, TabList, TabPanels, Tab, TabPanel, Button,Radio, RadioGroup } from '@chakra-ui/react'
 import '../../index.css'
 
 // redux
@@ -97,7 +97,13 @@ const SignupLogin = () => {
             <TabPanels>
               <TabPanel>
                 <>
-                  <div className="submit mt-8">
+                  <div className="submit mt-2">
+                  <div className="input">
+            <RadioGroup className='flex items-center justify-center gap-16 mt-2 mb-6'>
+                <Radio size='lg' colorScheme='purple' name='role' value='user'>User</Radio>
+                <Radio size='lg' colorScheme='purple' name='role' value='provider'>Provider</Radio>
+            </RadioGroup>
+        </div>
                     <Button
                       className="w-full p-2 h-auto"
                       colorScheme="purple"
