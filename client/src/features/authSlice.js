@@ -5,6 +5,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   key: "login",
   registerStage: 0,
+  email: "",
+  password: "",
 }
 
 export const authSlice = createSlice({
@@ -13,6 +15,12 @@ export const authSlice = createSlice({
   reducers: {
     setKey: (state, action) => {
       state.key = action.payload;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    setPassword: (state, action) => {
+      state.password = action.payload;
     },
     incrementRegisterStage: (state, action) => {
       state.registerStage += 1;
@@ -23,6 +31,6 @@ export const authSlice = createSlice({
   },
 })
 
-export const { setKey, incrementRegisterStage, decrementRegisterStage } = authSlice.actions
+export const { setKey, setEmail, setPassword, incrementRegisterStage, decrementRegisterStage } = authSlice.actions
 
 export default authSlice.reducer

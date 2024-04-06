@@ -14,7 +14,7 @@ import Register06 from '../components/myComponents/Register06'
 import Register07 from '../components/myComponents/Register07'
 
 // redux
-import { incrementRegisterStage, decrementRegisterStage } from '../features/authSlice';
+//import { incrementRegisterStage, decrementRegisterStage } from '../features/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 
 const Signup = () => {
