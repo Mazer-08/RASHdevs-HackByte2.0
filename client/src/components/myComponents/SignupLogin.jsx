@@ -89,11 +89,13 @@ const SignupLogin = () => {
                 const res = await axios.post('http://localhost:3000/auth/requester/register', registerData);
                 //console.log(res.data.token);
                 localStorage.setItem('token', res.data.token);
+                navigate('/requester-update');
                 dispatch(incrementRegisterStage());
             }
             else if(role==="provider"){
                 const res = await axios.post('http://localhost:3000/auth/provider/register', registerData);
                 localStorage.setItem('token', res.data.token);
+                navigate('/provider-update');
                 dispatch(incrementRegisterStage());
             }
         } 

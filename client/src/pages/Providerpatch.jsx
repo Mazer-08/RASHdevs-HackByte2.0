@@ -4,7 +4,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 // imporing components
-import SignupLogin from '../components/myComponents/SignupLogin'
 import Register02 from '../components/myComponents/Register02'
 import Register03 from '../components/myComponents/Register03'
 import Register04 from '../components/myComponents/Register04'
@@ -15,7 +14,7 @@ import Register07 from '../components/myComponents/Register07'
 // redux
 import { useSelector } from 'react-redux'
 
-const Signup = () => {
+const Providerpatch = () => {
 
     const navigate = useNavigate();
     const registerStage = useSelector((state) => state.auth.registerStage);
@@ -23,10 +22,16 @@ const Signup = () => {
   return (
     <>
       <div className='h-screen w-full flex justify-center items-center'>
-          <SignupLogin/>
+          {(registerStage === 1) ? <Register02/> :
+          (registerStage === 2) ? <Register03/> :
+          (registerStage === 3) ? <Register04/> :
+          (registerStage === 4) ? <Register05/> :
+          (registerStage === 5) ? <Register06/> :
+          (registerStage === 6) ? <Register07/> :
+          navigate('/') }
       </div>
     </>
   )
 }
 
-export default Signup
+export default Providerpatch

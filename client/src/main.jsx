@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Signup from './pages/Signup'
+import Requesterpatch from './pages/Requesterpatch'
+import Providerpatch from './pages/Providerpatch'
 
 // redux
 import { store } from './app/store'
@@ -25,6 +27,14 @@ const router  = createBrowserRouter([
   {
     path:'/signup',
     element:<Signup/>,
+  },
+  {
+    path:'/requester-update',
+    element:<Requesterpatch/>,
+  },
+  {
+    path:'/provider-update',
+    element:<Providerpatch/>,
   },
 ]);
 
