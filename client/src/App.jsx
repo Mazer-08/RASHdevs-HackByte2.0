@@ -6,6 +6,8 @@ import { useToast } from '@chakra-ui/react'
 // redux
 import { useSelector, useDispatch } from 'react-redux'
 import { increment } from './features/testSlice'
+import ListCard from './components/ListCard'
+import UserSideBar from './components/UserSideBar'
 
 function App() {
   const toast = useToast();
@@ -30,10 +32,10 @@ function App() {
 }, []);
 
   return (
-    <>
-      <p>{value}</p>
-      <button onClick={()=>{dispatch(increment())}}>incremtn</button>
-    </>
+    <div className='w-full h-full flex gap-6'>
+      <ListCard/>
+      <UserSideBar/>
+    </div>
   )
 }
 
