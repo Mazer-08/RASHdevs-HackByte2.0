@@ -4,11 +4,16 @@ import { ChevronLeftIcon, CheckIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementRegisterStage, decrementRegisterStage } from '../../features/authSlice'
+import { incrementRegisterStage, decrementRegisterStage, setRole } from '../../features/authSlice'
 
 const Register01 = () => {
 
+  //redux
   const dispatch = useDispatch();
+
+  //variables
+  const role = useSelector((state) => state.auth.role);
+  const key = useSelector((state) => state.auth.key);
   const registerStage = useSelector((state) => state.auth.registerStage);
 
   return (
@@ -33,8 +38,8 @@ const Register01 = () => {
 
         <div className="input">
           <RadioGroup className='flex items-center justify-center gap-16 mt-16'>
-          <Radio size='lg' colorScheme='purple' name='role' value='user'>User</Radio>
-          <Radio size='lg' colorScheme='purple' name='role' value='provider'>Provider</Radio>
+          <Radio size='lg' colorScheme='purple' name='role' value='user' onChange={()=>{dispatch(setRole("user"))}}>User</Radio>
+          <Radio size='lg' colorScheme='purple' name='role' value='provider' onChange={()=>{dispatch(setRole("provider"))}}>Provider</Radio>
           </RadioGroup>
         </div>
       </div>

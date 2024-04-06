@@ -4,12 +4,20 @@ import { ChevronLeftIcon, CheckIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementRegisterStage, decrementRegisterStage } from '../../features/authSlice'
+import { incrementRegisterStage, decrementRegisterStage, setName, setUsername, setDob } from '../../features/authSlice'
 
 const Register02 = () => {
 
+  //redux
   const dispatch = useDispatch();
+
+  //variables
+  const role = useSelector((state) => state.auth.role);
+  const key = useSelector((state) => state.auth.key);
   const registerStage = useSelector((state) => state.auth.registerStage);
+  const name = useSelector((state) => state.auth.name);
+  const username = useSelector((state) => state.auth.username);
+  const dob = useSelector((state) => state.auth.dob);
 
   return (
     <div className='w-full h-full p-4 py-0 flex flex-col items-center justify-start'>
@@ -32,9 +40,9 @@ const Register02 = () => {
             </div>
             <div className="input mt-4">
               <label className='font-semibold' htmlFor="name">Name</label>
-              <Input className='mt-2 mb-6' focusBorderColor='purple.400' placeholder='Enter your name' name='name'/>
+              <Input className='mt-2 mb-6' focusBorderColor='purple.400' placeholder='Enter your name' name='name' value={name} onChange={(e)=>{dispatch(setName(e.target.value))}}/>
               <label className='font-semibold' htmlFor="username">Username</label>
-              <Input className='mt-2 mb-6' focusBorderColor='purple.400' placeholder='Enter your username' name='username'/>
+              <Input className='mt-2 mb-6' focusBorderColor='purple.400' placeholder='Enter your username' name='username' value={username} onChange={(e)=>{dispatch(setUsername(e.target.value))}}/>
             </div>
             <div className="info">
               <div className='flex gap-2 px-2'>
@@ -48,7 +56,7 @@ const Register02 = () => {
             </div>
             <div className="div">
               <h1 className='font-semibold mt-6'>DOB</h1>
-              <Input className='mt-2' type='date' placeholder='Enter your username' />
+              <Input className='mt-2' type='date' placeholder='Enter your username' onChange={(e)=>{dispatch(setDob(e.target.value))}}/>
             </div>
           </div>
           <Button bgColor={'purple.500'} className='mt-5' textColor={'white'} _hover={{textColor:'purple.500', bgColor:'white'}}onClick={()=>{dispatch(incrementRegisterStage())}}>Continue</Button>

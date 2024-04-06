@@ -4,12 +4,13 @@ import { ChevronLeftIcon, CheckIcon } from '@chakra-ui/icons'
 
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementRegisterStage, decrementRegisterStage } from '../../features/authSlice'
+import { incrementRegisterStage, decrementRegisterStage, setAbout } from '../../features/authSlice'
 
 const Register03 = () => {
 
   const dispatch = useDispatch();
   const registerStage = useSelector((state) => state.auth.registerStage);
+  const about = useSelector((state) => state.auth.about);
 
   return (
     <div className='w-full h-full p-4 py-0 flex flex-col items-center justify-start'>
@@ -28,7 +29,7 @@ const Register03 = () => {
           <p className='text-lg text-slate-400'>Basic Details</p>
         </div>
         <div className="input mt-4">
-          <Textarea placeholder='Tell us about yourself' />
+          <Textarea placeholder='Tell us about yourself' onChange={(e)=>{dispatch(setAbout(e.target.value))}}/>
         </div>
         <p className='text-xs text-slate-500 mb-4'>About 120-150 words</p>
       </div>

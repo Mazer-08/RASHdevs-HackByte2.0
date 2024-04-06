@@ -1,13 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Input, Tabs, TabList, TabPanels, Tab, TabPanel, Button,Radio, RadioGroup } from '@chakra-ui/react'
 import '../../index.css'
+import axios from 'axios';
 
 // redux
-import { setKey, setEmail, setPassword, incrementRegisterStage } from '../../features/authSlice';
+import { setKey, setEmail, setPassword, setRole, setName, setUsername, setDob, setAbout, setClgName, setPassingYear, setDomain, setWorkExp, setLinkedIn, setGithub, setCvLink, incrementRegisterStage } from '../../features/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 
 const SignupLogin = () => {
-
+    const navigate = useNavigate();
     //redux
     const dispatch = useDispatch();
 
@@ -17,10 +19,18 @@ const SignupLogin = () => {
     const key = useSelector((state) => state.auth.key);
 
     //functions
-    const handleLoginIn = () => {
-        const loginData = {
-            email: email,
-            password: password,
+    const handleLogIn = async() => {
+        try {
+            const loginData = {
+                email: email,
+                password: password,
+            }
+            const res = await axios.post('http://localhost:3000/auth/requester/login', loginData);
+            console.log(res.data.token);
+            localStorage.setItem('token', res.data.token);
+            navigate('/');
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -88,7 +98,7 @@ const SignupLogin = () => {
                       mb={2}
                       p={4}
                       fontSize="0.75em"
-                      type="text"
+                      type="password"
                       placeholder="Enter Password"
                       value={password}
                       onChange={(e) => dispatch(setPassword(e.target.value))}
@@ -100,15 +110,15 @@ const SignupLogin = () => {
                   <div className="submit mt-2">
                   <div className="input">
             <RadioGroup className='flex items-center justify-center gap-16 mt-2 mb-6'>
-                <Radio size='lg' colorScheme='purple' name='role' value='user'>User</Radio>
-                <Radio size='lg' colorScheme='purple' name='role' value='provider'>Provider</Radio>
+                <Radio size='lg' colorScheme='purple' name='role' value='user' onChange={()=>{dispatch(setRole("User"))}}>User</Radio>
+                <Radio size='lg' colorScheme='purple' name='role' value='provider' onChange={()=>{dispatch(setRole("Provider"))}}>Provider</Radio>
             </RadioGroup>
         </div>
                     <Button
                       className="w-full p-2 h-auto"
                       colorScheme="purple"
                       size="md"
-                      onClick={() => {handleLoginIn()}}
+                      onClick={handleLogIn}
                     >
                       Login
                     </Button>
