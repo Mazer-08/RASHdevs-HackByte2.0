@@ -28,6 +28,7 @@ import requestRoutes from "./routes/provider/request.js";
 
 // Requester routes imports
 import requesterRequestRoutes from "./routes/requester/request.js";
+import requesterRefferalRoutes from "./routes/requester/referral.js";
 
 // Auth routes
 app.use("/auth/provider", providerAuthRoutes);
@@ -39,6 +40,8 @@ app.use("/provider", requestRoutes);
 
 // Requester routes
 app.use("/requester", requesterRequestRoutes);
+app.use("/requester", requesterRefferalRoutes);
+
 
 app.get("/hello", (req, res) => {
   res.send("Hello World from Jobbridge!!");

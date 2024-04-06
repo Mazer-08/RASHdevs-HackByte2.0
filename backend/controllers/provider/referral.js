@@ -19,12 +19,15 @@ const createReferral = async (req, res) => {
       expiryDate,
     } = req.body;
 
+    const provider = await Provider.findOne({id : req.user.id});
+
     const referral = await Referral.create({
       position,
       company,
       officialLink,
       availableCount,
       details,
+      company : provider.company,
       expiryDate,
       providerId: req.user.id,
     });
@@ -44,7 +47,6 @@ const updateReferral = async (req, res) => {
     const { id } = req.params;
     const {
       position,
-      company,
       officialLink,
       availableCount,
       details,
@@ -61,7 +63,6 @@ const updateReferral = async (req, res) => {
 
     const updatedReferral = await referral.update({
       position,
-      company,
       officialLink,
       availableCount,
       details,
