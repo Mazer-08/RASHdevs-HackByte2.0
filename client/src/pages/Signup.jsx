@@ -26,7 +26,7 @@ const Signup = () => {
     const dispatch = useDispatch();
 
   return (
-    <div className='w-screen flex justify-center items-center'>
+    <div className='h-screen w-full flex justify-center items-center'>
         {(registerStage === 0) ? <SignupLogin/> :
          (registerStage === 1) ? <Register01/> :
          (registerStage === 2) ? <Register02/> :
