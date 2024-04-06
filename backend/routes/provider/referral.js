@@ -17,6 +17,6 @@ import isProvider from "../../middlewares/isProvider.js";
 router.post("/referral/create", isProvider, createReferral);
 router.patch("/referral/update/:id", isProvider, updateReferral);
 router.get("/referral", isProvider, getReferral);
-router.get("/referral/:id", getReferralById);
+router.get("/referral/:id", isProvider, getReferralById);
 
 export default router;

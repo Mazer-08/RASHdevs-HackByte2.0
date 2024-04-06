@@ -38,10 +38,14 @@ Requester.init(
       allowNull: true,
     },
     college: {
-        type: DataTypes.STRING,
-        // allowNull: false,
-        allowNull: true,
-        },
+      type: DataTypes.STRING,
+      // allowNull: false,
+      allowNull: true,
+    },
+    resume: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     linkedin: {
       type: DataTypes.STRING,
       allowNull: true,

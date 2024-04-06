@@ -6,10 +6,13 @@ const router = Router();
 // Middleware imports
 import isRequester from "../../middlewares/isRequester.js";
 
-import {MakeRequest} from "../../controllers/requester/sendRequest.js";
+import {MakeRequest, CheckRequest, RequestList} from "../../controllers/requester/request.js";
 
 // Model imports
 
 router.post("/makerequest/:id", isRequester, MakeRequest);
+router.get("/checkrequest/:id", isRequester, CheckRequest);
+router.get("/requestlist", isRequester, RequestList);
+
 
 export default router;

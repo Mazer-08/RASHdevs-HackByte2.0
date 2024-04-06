@@ -12,7 +12,12 @@ Request.init(
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-    }
+    },
+    status: {
+      type: DataTypes.ENUM("pending", "accepted", "rejected"),
+      defaultValue: "pending",
+      allowNull: true,
+    },
   },
   {
     sequelize,

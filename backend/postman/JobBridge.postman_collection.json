@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "71dd4861-152f-47c8-93f3-85d4c8f907d0",
+		"name": "JobBridge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23127590"
+	},
+	"item": [
+		{
+			"name": "Requester",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"himanshu1@gmail.com\",\r\n    \"password\" : \"himanshu1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/requester/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"requester",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"himanshu2@gmail.com\",\r\n    \"password\" : \"himanshu2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/requester/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"requester",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "make new request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/makerequest/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"makerequest",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check request status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/checkrequest/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"checkrequest",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My request list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{REQUESTER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/requester/requestlist",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requester",
+								"requestlist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provider",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"himanshu1@gmai.com\",\r\n    \"password\" : \"himanshu1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/provider/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"provider",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"himanshu1@gmai.com\",\r\n    \"password\" : \"himanshu1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/provider/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"provider",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new referral",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhpbWFuc2h1MUBnbWFpLmNvbSIsImlkIjoxLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3MTIzNDc1NTR9.q3wEWRIcQbsW4qrF47ZFEqepAcvxeMnACT17BlbnEB8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"company\" : \"meta\",\r\n    \"availableCount\" : \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/provider/referral/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"referral",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Referral",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"company\" : \"facebook\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/provider/referral/update/6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"referral",
+								"update",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of my created referral",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/provider/referral",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"referral"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get referral details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/provider/referral/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"referral",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all requests and their referrals",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/provider/request",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept or reject request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PROVIDER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\" : \"accepted\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/provider/request/accept/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"provider",
+								"request",
+								"accept",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

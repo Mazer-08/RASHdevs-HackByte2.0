@@ -24,8 +24,10 @@ import requesterAuthRoutes from "./routes/requester/auth.js";
 
 // Provider routes imports
 import refferalRoutes from "./routes/provider/referral.js";
+import requestRoutes from "./routes/provider/request.js";
 
-// User route imports
+// Requester routes imports
+import requesterRequestRoutes from "./routes/requester/request.js";
 
 // // Organiser route imports
 // import organiserProfileRoutes from "./routes/organiser/organiserProfile.js";
@@ -39,6 +41,12 @@ app.use("/auth/requester", requesterAuthRoutes);
 
 // Provider routes
 app.use("/provider", refferalRoutes);
+app.use("/provider", requestRoutes);
+
+// Requester routes
+app.use("/requester", requesterRequestRoutes);
+
+
 
 // // User routes
 // app.use("/user", userBookmarkRoutes);
