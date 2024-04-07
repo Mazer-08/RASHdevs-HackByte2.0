@@ -44,7 +44,7 @@ const SignupLogin = () => {
                 password: password,
             }
             if(role==="requester"){
-                const res = await axios.post('http://localhost:3000/auth/requester/login', loginData);
+                const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/requester/login`, loginData);
                 //console.log(res.data.token);
                 localStorage.setItem('token', res.data.token);
                 console.log("before setLoggedIn");
@@ -53,7 +53,7 @@ const SignupLogin = () => {
                 navigate('/');
             }
             else if(role==="provider"){
-                const res = await axios.post('http://localhost:3000/auth/provider/login', loginData);
+                const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/provider/login`, loginData);
                 localStorage.setItem('token', res.data.token);
                 console.log("before setLoggedIn");
                 dispatch(setLoggedIn(loggedIn));
@@ -93,14 +93,14 @@ const SignupLogin = () => {
                 password: password,
             }
             if(role==="requester"){
-                const res = await axios.post('http://localhost:3000/auth/requester/register', registerData);
+                const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/requester/register`, registerData);
                 //console.log(res.data.token);
                 localStorage.setItem('token', res.data.token);
                 navigate('/requester-update');
                 dispatch(incrementRegisterStage());
             }
             else if(role==="provider"){
-                const res = await axios.post('http://localhost:3000/auth/provider/register', registerData);
+                const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/provider/register`, registerData);
                 localStorage.setItem('token', res.data.token);
                 navigate('/provider-update');
                 dispatch(incrementRegisterStage());
@@ -127,7 +127,7 @@ const SignupLogin = () => {
         <div className="Signup left h-5/6 w-1/2 overflow-hidden rounded-xl flex flex-col justify-between">
           <div className="flex flex-col p-8">
             <p className="text-white font-bold text-3xl font-sans">
-              Welcome to JobBridge
+              Welcome to ReferKaro
             </p>
             <p className="text-white font-sans text-sm mt-2">
               Your Gateway to Dream Job.

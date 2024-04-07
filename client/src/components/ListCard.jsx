@@ -35,7 +35,7 @@ const ListCard = () => {
                   'authorization': 'Bearer ' + localStorage.getItem('token'),
                 },
             }
-            const res = await axios.get('http://localhost:3000/requester/listreferral', config);
+            const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/requester/listreferral`, config);
             //console.log(res.data.referrals);
             dispatch(setAllReferrals(res.data.referrals));
             //console.log("pending ref", AllReferrals);
@@ -52,7 +52,7 @@ const ListCard = () => {
                   'authorization': 'Bearer ' + localStorage.getItem('token'),
                 },
             }
-            const res = await axios.get('http://localhost:3000/requester/requestlist', config);
+            const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/requester/requestlist`, config);
             console.log(res.data.requests);
             dispatch(setAllReferrals(res.data.requests));
             console.log("pending ref",AllReferrals);

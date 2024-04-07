@@ -70,12 +70,12 @@ const Register06 = () => {
 
       //registering
       if(role==="requester"){
-        const res = await axios.patch('http://localhost:3000/auth/requester/update', registerData, config);
+        const res = await axios.patch(`${import.meta.env.VITE_BASE_URL}/auth/requester/update`, registerData, config);
         console.log("requester", res.data.message);
         dispatch(incrementRegisterStage());
       }
       else if(role==="provider"){
-        const res = await axios.patch('http://localhost:3000/auth/provider/update', registerData, config);
+        const res = await axios.patch(`${import.meta.env.VITE_BASE_URL}/auth/provider/update`, registerData, config);
         console.log("provider", res.data.message);
         dispatch(incrementRegisterStage());
       }
