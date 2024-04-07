@@ -22,6 +22,9 @@ Overall, JobBridge aims to revolutionize the job referral process by leveraging 
 1. **Monetization:**
 2. **ML based suggestions:**
 
+## Presentation :
+- - [Link to presentation](https://www.canva.com/design/DAGBnZ0PaLg/MTlEb3CnHYQh-L_02aFvFw/edit?utm_content=DAGBnZ0PaLg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## TechStack and Tools:
 
 1. NodeJs
