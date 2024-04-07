@@ -21,6 +21,7 @@ const sequelize = new Sequelize(dbname, username, password, {
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
+    await sequelize.query("CREATE DATABASE IF NOT EXISTS jobbridge");
     console.log("Connection has been established successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
