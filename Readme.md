@@ -39,7 +39,7 @@ Overall, ReferKaro aims to revolutionize the job referral process by leveraging 
 1. NodeJs
 2. ReactJs
 3. MySQL (sequelize)
-4. Figma
+4. Figma (UI Design)
 5. Postman
 
 ## Status :
